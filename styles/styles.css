@@ -1,0 +1,36 @@
+@import "./navbar.css";
+@import "./card.css";
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    --border-radius: 10px;
+    --accent-color: hsl(102, 19%, 59%);
+    --accent-color-tr: hsla(102, 19%, 59%, 0.75);
+    --bg-menu: rgb(77, 69, 69);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: rgb(201, 255, 251);
+    background: linear-gradient(39deg, rgba(201, 255, 251, 1) 35%, rgba(243, 249, 219, 1) 66%);
+    /*
+    background-image: url("/assets/background.jpg");
+    background-size: cover;
+    */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    background: var(--bg-menu);
+    color: white;
+    text-align: center;
+}

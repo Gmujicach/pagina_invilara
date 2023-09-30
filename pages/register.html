@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
     <title>Registro</title>
 </head>
+
 <body>
+
     <nav class="navbar">
-        <div class="navbar">
+        <div class="navbar__item">
             <a href="#">Inicio</a>
             <a href="#">Información</a>
             <a href="#">Ayuda</a>
         </div>
-        <div class="navbar">
+        <div class="navbar__item">
             <a href="login.html">Iniciar Sesión</a>
             <a href="register.html">Registrarse</a>
-            <img src="assets/logo.png" class="logo">
+            <img src="/assets/logo.png" class="navbar__logo">
         </div>
     </nav>
 
-    <article class="card-container short">
-        <div class="login">
+    <section class="card card--short">
+        <div class="card__login">
             <h3>Registro</h3>
             <form>
                 <input type="email" name="user" id="user" placeholder="Email" required>
@@ -29,8 +32,9 @@
                 <button type="submit" name="submit" id="submit">Crear cuenta</button>
             </form>
         </div>
-    </article>
+    </section>
 
     <footer>Invilara</footer>
 </body>
+
 </html>

@@ -1,0 +1,76 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--accent-color-tr);
+    color: white;
+    width: 100%;
+    max-width: 50%;
+    margin: 50px auto;
+    padding: 40px;
+    border: 1px solid white;
+    border-radius: var(--border-radius);
+}
+
+.card--short {
+    max-width: 25%;
+}
+
+.card--no-margin {
+    padding: 5px;
+}
+
+.card__desc {
+    margin: 0;
+    flex: 80%;
+}
+
+.card__login {
+    margin: 10px;
+    flex: 50%;
+    flex-direction: column;
+    color: white;
+    display: flex;
+    align-items: center;
+
+    >form {
+        width: 100%;
+
+        >input {
+            color: inherit;
+            background: none;
+            border: none;
+            border-bottom: 3px solid white;
+            margin: 15px 0;
+            width: inherit;
+        }
+
+        >input:focus {
+            color: inherit;
+        }
+
+        >input::placeholder {
+            color: inherit;
+            font-size: 1.2em;
+        }
+
+        >button {
+            background-color: yellow;
+            border-radius: var(--border-radius);
+            width: inherit;
+            padding: 10px;
+        }
+    }
+}
+
+.card__forget-password {
+    color: inherit;
+    margin-top: 20px;
+    font-size: 0.8em;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        max-width: 75%;
+        flex-direction: column;
+    }
+}
