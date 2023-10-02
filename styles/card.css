@@ -1,6 +1,4 @@
 .card {
-    display: flex;
-    flex-direction: row;
     background-color: var(--accent-color-tr);
     color: white;
     width: 100%;
@@ -9,14 +7,15 @@
     padding: 40px;
     border: 1px solid white;
     border-radius: var(--border-radius);
+
+    &.card--grid {
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 .card--short {
     max-width: 25%;
-}
-
-.card--no-margin {
-    padding: 5px;
 }
 
 .card__desc {
@@ -51,13 +50,6 @@
         >input::placeholder {
             color: inherit;
             font-size: 1.2em;
-        }
-
-        >button {
-            background-color: yellow;
-            border-radius: var(--border-radius);
-            width: inherit;
-            padding: 10px;
         }
     }
 }
