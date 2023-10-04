@@ -40,8 +40,6 @@
             }
             ?>
 
-            <?php include('../modelo/rolconex.php') ?>
-
             <form action="../controlador/UsuarioController.php?action=register" method="POST">
                 <input type="text" name="cedula_usuario" placeholder="Cedula" required>
                 <input type="text" name="nombre_usuario" placeholder="Nombre de Usuario" required>
