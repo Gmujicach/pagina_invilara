@@ -1,0 +1,63 @@
+@import "./navbar.css";
+@import "./card.css";
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    --border-radius: 10px;
+    --accent-color: hsl(102, 19%, 59%);
+    --accent-color-tr: hsla(102, 24%, 78%, 0.75);
+    --bg-menu: rgb(77, 69, 69);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(201, 255, 251);
+    background: linear-gradient(39deg, rgba(201, 255, 251, 1) 35%, rgba(243, 249, 219, 1) 66%);
+    /*
+    background-image: url("/assets/background.jpg");
+    background-size: cover;
+    */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    background: var(--bg-menu);
+    color: white;
+    text-align: center;
+}
+
+input {
+    border-radius: 5px;
+    border: 1px solid var(--bg-menu);
+    padding: 2px;
+}
+
+button {
+    background-color: yellow;
+    border-radius: var(--border-radius);
+    width: 100%;
+    padding: 10px;
+}
+
+.form-label {
+    >div {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    >h1 {
+        text-decoration: underline;
+        text-align: center;
+    }
+}
