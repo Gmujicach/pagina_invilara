@@ -22,14 +22,14 @@ if (isset($_GET['action'])) {
             $cedula_usuario,
             $nombre_usuario,
             $contraseña_usuario,
-            intval($id_rol)
+            $id_rol
         );
-        if (!$result) {
-            header('Location: ../vista/register.php?error=cedula_repetida');
-        } else {
+        if ($result == true) {
             header("Location: ../vista/admin.php");
+        } else {
+            header('Location: ../vista/register.php?error=cedula_repetida');
         }
-        //----------------------------------------------------------------------
+
     } else if ($action == 'login') {
         session_start();
 

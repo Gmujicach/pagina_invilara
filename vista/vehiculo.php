@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
-    <title>Vehiculo</title>
+    <<link rel="stylesheet" type="text/css" href="css/styles.css">
+        <title>Vehiculo</title>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="navbar__item">
@@ -45,19 +47,19 @@
                     $password = "";
                     $dbname = "invilara";
 
-                    
+
                     $conn = new mysqli($servername, $username, $password, $dbname);
 
-                    
+
                     if ($conn->connect_error) {
                         die("Conexión fallida: " . $conn->connect_error);
                     }
 
-                    
+
                     $sql = "SELECT nombre_fabricante FROM fabricante";
                     $result = $conn->query($sql);
 
-                    
+
                     echo "<label for='Fabricante'>Fabricante:</label>";
                     echo "<select name='Fabricante'>";
                     while ($row = $result->fetch_assoc()) {
@@ -65,11 +67,11 @@
                     }
                     echo "</select>";
 
-                    
+
                     $sql = "SELECT nombre_tipo FROM tipovehiculo";
                     $result = $conn->query($sql);
 
-                    
+
                     echo "<label for='Tipo'>Tipo:</label>";
                     echo "<select name='Tipo'>";
                     while ($row = $result->fetch_assoc()) {
@@ -77,7 +79,7 @@
                     }
                     echo "</select>";
 
-                    
+
                     $conn->close();
                     ?>
 
@@ -90,4 +92,5 @@
 
     <footer>Invilara - Hecho por Gabriel Mujica</footer>
 </body>
+
 </html>

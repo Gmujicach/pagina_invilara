@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Vehiculo</title>
 </head>
 
@@ -21,7 +21,7 @@
 
     <main class="layout">
         <section class="card card--short">
-            <form class="form-label" action="../controlador/conductorcontroller.php" method="POST">
+            <form class="form-label" action="../controlador/ConductorController.php" method="POST">
                 <h1>CONDUCTOR</h1>
 
                 <div>
