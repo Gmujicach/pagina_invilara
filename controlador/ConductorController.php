@@ -2,7 +2,6 @@
 
 session_start();
 
-require_once '../modelo/conexion.php';
 require_once '../modelo/ConductorModelo.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -17,11 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $cedula_usuario = isset($_SESSION['cedula_usuario']) ? $_SESSION['cedula_usuario'] : null;
 
-    $modeloConductor = new Conductor($conn);
+    $modeloConductor = new Conductor();
 
-    if ($modeloConductor->insertarConductor($cedula, $nombre, $apellido, $direccion, $celular, $num_licencia, $vencimiento_licencia, $grado_licencia, $cedula_usuario)) {
+    if (
+        $modeloConductor->insertarConductor(
+            $cedula,
+            $nombre,
+            $apellido,
+            $direccion,
+            $celular,
+            $num_licencia,
+            $vencimiento_licencia,
+            $grado_licencia,
+            $cedula_usuario
+        )
+    ) {
         header("Location: ../vista/admin.php");
-        exit;
     } else {
         echo "Error al guardar el conductor.";
     }

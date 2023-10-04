@@ -6,8 +6,8 @@ class Conductor
 
     public function __construct()
     {
-        $this->conn = new PDO('mysql:host=localhost;dbname=nombre_de_la_base_de_datos', 'usuario', 'contraseña');
-        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $conn = new Database();
+        $this->conn = $conn->connect();
     }
 
     public function insertarConductor(
