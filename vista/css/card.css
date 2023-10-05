@@ -54,12 +54,6 @@
     }
 }
 
-.card__forget-password {
-    color: inherit;
-    margin-top: 20px;
-    font-size: 0.8em;
-}
-
 @media screen and (max-width: 768px) {
     .card {
         max-width: 75%;

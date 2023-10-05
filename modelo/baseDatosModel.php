@@ -5,7 +5,7 @@ const DBNAME = "invilara";
 const DB_USERNAME = "root";
 const DB_PASSWORD = "";
 
-class Database
+class BaseDatos
 {
     private $host;
     private $dbname;
@@ -20,7 +20,11 @@ class Database
         $this->password = DB_PASSWORD;
     }
 
-    public function connect()
+    /**
+     * Devuelve una instancia PDO de la base de datos.
+     * @return PDO
+     */
+    public function crear_conexion()
     {
         $dsn = "mysql:host=$this->host;dbname=$this->dbname";
         $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
@@ -29,6 +33,7 @@ class Database
             return new PDO($dsn, $this->username, $this->password, $options);
         } catch (PDOException $e) {
             echo "Conexión fallida: " . $e->getMessage();
+            exit();
         }
     }
 }

@@ -1,0 +1,77 @@
+<?php
+
+require_once "../modelo/baseDatosModel.php";
+
+class Vehiculo
+{
+    private $conn;
+
+    public function __construct(PDO $pdo)
+    {
+        $this->conn = $pdo;
+    }
+
+    public function insertarVechiculo(
+        string $serial,
+        string $numero_vehiculo,
+        string $color,
+        string $ID_tipo,
+        string $ID_fabricante,
+    ): bool {
+        try {
+            $stmt = $this->conn->prepare("INSERT INTO `vehiculo` (
+                `serial`,
+                `numero_vehiculo`,
+                `color`,
+                `ID_tipo`,
+                `ID_fabricante`,
+            ) VALUES (?, ?, ?, ?, ?)");
+
+            $stmt->execute([
+                $serial,
+                $numero_vehiculo,
+                $color,
+                $ID_tipo,
+                $ID_fabricante,
+            ]);
+            return true;
+
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+            exit;
+        }
+    }
+
+    /**
+     * Listara todos los vehiculos
+     * @return array
+     */
+    public function listarVehiculos(): array
+    {
+        $result = $this->conn->query("SELECT * FROM `vehiculo`");
+        return $result->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    /**
+     * Listara todos los fabricantes
+     * @return array
+     */
+    public function listarFabricantes(): array
+    {
+        $result = $this->conn->query("SELECT `nombre_fabricante` FROM `fabricante`");
+        return $result->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    /**
+     * Listara todos los tipos de vehiculos
+     * @return array
+     */
+    public function listarTiposVehiculos()
+    {
+        $result = $this->conn->query("SELECT `nombre_tipo` FROM `tipovehiculo`");
+        return $result->fetchAll(PDO::FETCH_COLUMN);
+    }
+}
+
+
+?>

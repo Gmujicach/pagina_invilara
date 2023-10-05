@@ -1,15 +1,14 @@
 <?php
 
-require_once "../modelo/Database.php";
+require_once "../modelo/baseDatosModel.php";
 
 class Conductor
 {
     private $conn;
 
-    public function __construct()
+    public function __construct(PDO $pdo)
     {
-        $conn = new Database();
-        $this->conn = $conn->connect();
+        $this->conn = $pdo;
     }
 
     public function insertarConductor(

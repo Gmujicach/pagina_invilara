@@ -9,19 +9,11 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="navbar__item">
-            <a href="admin.php">Cancelar</a>
-        </div>
-
-        <div class="navbar__item">
-            <img src="assets/logo.png" class="navbar__logo navbar__logo--right"></img>
-        </div>
-    </nav>
+    <?php include_once "./componentes/navbar-edit.php"; ?>
 
     <main class="layout">
         <section class="card card--short">
-            <form class="form-label" action="../controlador/ConductorController.php" method="POST">
+            <form class="form-label" action="../controlador/conductorController.php" method="POST">
                 <h1>CONDUCTOR</h1>
 
                 <div>

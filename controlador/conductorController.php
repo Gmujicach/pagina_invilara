@@ -1,10 +1,13 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+// Instancias
+require_once "../modelo/baseDatosModel.php";
+require_once "../modelo/usuarioModel.php";
 
-require_once '../modelo/ConductorModelo.php';
+$bd = new BaseDatos();
+$conductor = new Conductor($bd->crear_conexion());
 
+// Logica
 $cedula = $_POST['cedula'];
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
@@ -17,7 +20,6 @@ $grado_licencia = $_POST['grado_licencia'];
 session_start();
 $cedula_usuario = isset($_SESSION['cedula_usuario']) ? $_SESSION['cedula_usuario'] : null;
 
-$conductor = new Conductor();
 $result = $conductor->insertarConductor(
     $cedula,
     $nombre,
@@ -36,6 +38,5 @@ if ($result) {
     echo "Error al guardar el conductor.";
     exit;
 }
-
 
 ?>
