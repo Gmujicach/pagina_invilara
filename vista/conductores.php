@@ -13,6 +13,7 @@
 
     <section class="card card--large">
         <h2>Conductores</h2>
+        <a href="../controlador/conductorController.php?action=put">Añadir</a>
         <table>
             <tr>
                 <th>Cédula</th>
@@ -37,9 +38,9 @@
                 echo "<td>{$conductor['vencimiento_licencia']}</td>";
                 echo "<td>{$conductor['grado_licencia']}</td>";
                 echo "<td>
-                    <a href='../controlador/conductorController.php?action=update&cedula={$conductor['cedula_conductor']}'>Actualizar</a>
+                    <a href='../controlador/conductorController.php?action=update&id={$conductor['cedula_conductor']}'>Actualizar</a>
                     |
-                    <a href='../controlador/conductorController.php?action=delete&cedula={$conductor['cedula_conductor']}'>Eliminar</a></td>";
+                    <a href='../controlador/conductorController.php?action=delete&id={$conductor['cedula_conductor']}'>Eliminar</a></td>";
                 echo "</tr>";
             }
             ?>

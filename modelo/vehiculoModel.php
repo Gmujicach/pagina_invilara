@@ -43,6 +43,39 @@ class Vehiculo
         }
     }
 
+    public function actualizarConductor(
+        $serial,
+        $numero_vehiculo,
+        $color,
+        $ID_tipo,
+        $ID_fabricante,
+    ) {
+        $stmt = $this->conn->prepare(
+            "UPDATE `vehiculo` SET 
+                serial=?, 
+                numero_vehiculo=?, 
+                color=?, 
+                ID_tipo=?, 
+                ID_fabricante=?, 
+            WHERE serial=?"
+        );
+        $stmt->execute([
+            $serial,
+            $numero_vehiculo,
+            $color,
+            $ID_tipo,
+            $ID_fabricante,
+        ]);
+        return $stmt->rowCount();
+    }
+
+    public function eliminarConductor($serial)
+    {
+        $stmt = $this->conn->prepare("DELETE FROM `vehiculo` WHERE serial=?");
+        $stmt->execute([$serial]);
+        return $stmt->rowCount();
+    }
+
     /**
      * Listara todos los vehiculos
      * @return array

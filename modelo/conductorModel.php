@@ -44,7 +44,6 @@ class Conductor
                 $grado_licencia,
                 $cedula_usuario
             ]);
-
             return true;
 
         } catch (PDOException $e) {
@@ -87,10 +86,10 @@ class Conductor
         return $stmt->rowCount();
     }
 
-    public function eliminarConductor($cedula)
+    public function eliminarConductor($cedula_conductor): string|int
     {
         $stmt = $this->conn->prepare("DELETE FROM `conductores` WHERE cedula_conductor=?");
-        $stmt->execute([$cedula]);
+        $stmt->execute([$cedula_conductor]);
         return $stmt->rowCount();
     }
 

@@ -23,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['id'] = $id;
 
         if ($id == 1) {
-            header('Location: ../controlador/adminController.php');
+            header('Location: ../controlador/conductorController.php');
         } elseif ($id == 2) {
-            header('Location: ../controlador/adminController.php');
+            header('Location: ../controlador/conductorController.php');
         }
     } else {
         header('Location: ../vista/login.php?error=1');

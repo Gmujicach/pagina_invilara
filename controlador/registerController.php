@@ -21,14 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     if ($result == true) {
-        header("Location: ../controlador/adminController.php");
+        header("Location: ../controlador/conductorController.php");
     } else {
         header('Location: ../vista/register.php?error=cedula_repetida');
     }
-
-} else {
-    $roles = $user->listarRoles();
-    include "../vista/register.php";
 }
+
+$roles = $user->listarRoles();
+include "../vista/register.php";
+exit();
+
 
 ?>
