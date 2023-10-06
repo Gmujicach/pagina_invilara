@@ -8,17 +8,25 @@ $bd = new BaseDatos();
 $vehiculo = new Vehiculo($bd->crear_conexion());
 
 // Logica
-$serial = $_POST['serial'];
-$numero_vehiculo = $_POST['numero_vehiculo'];
-$color = $_POST['color'];
-$id_fabricante = $_POST['Fabricante'];
-$id_tipo = $_POST['Tipo'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $result = $vehiculo->insertarVechiculo(
+        $_POST['serial'],
+        $_POST['numero_vehiculo'],
+        $_POST['color'],
+        $_POST['ID_fabricante'],
+        $_POST['ID_tipo']
+    );
 
-if ($stmt->execute()) {
-    header('Location: ../vista/admin.php');
+    if ($result) {
+        header('Location: ../controlador/adminController.php');
+    } else {
+        header('Location: ../vista/error.php');
+    }
+
 } else {
-
-    echo "Error al insertar en la base de datos.";
+    $fabricantes = $vehiculo->listarFabricantes();
+    $tipos_vehiculo = $vehiculo->listarTiposVehiculos();
+    include "../vista/vehiculo-edit.php";
 }
 
 ?>

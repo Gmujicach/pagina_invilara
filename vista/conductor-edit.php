@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../vista/css/index.css">
     <title>Vehiculo</title>
 </head>
 
 <body>
-    <?php include_once "./componentes/navbar-edit.php"; ?>
+    <?php include_once "../vista/componentes/navbar-admin-edit.php"; ?>
 
     <main class="layout">
         <section class="card card--short">

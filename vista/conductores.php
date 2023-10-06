@@ -11,7 +11,7 @@
 <body>
     <?php include_once "../vista/componentes/navbar-admin.php"; ?>
 
-    <section class="card">
+    <section class="card card--large">
         <h2>Conductores</h2>
         <table>
             <tr>

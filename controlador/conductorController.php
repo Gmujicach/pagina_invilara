@@ -2,41 +2,56 @@
 
 // Instancias
 require_once "../modelo/baseDatosModel.php";
-require_once "../modelo/usuarioModel.php";
+require_once "../modelo/conductorModel.php";
 
 $bd = new BaseDatos();
 $conductor = new Conductor($bd->crear_conexion());
 
 // Logica
-$cedula = $_POST['cedula'];
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$direccion = $_POST['direccion'];
-$celular = $_POST['celular'];
-$num_licencia = $_POST['num_licencia'];
-$vencimiento_licencia = $_POST['vencimiento_licencia'];
-$grado_licencia = $_POST['grado_licencia'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_GET["action"] == "update") {
+        $conductor->actualizarConductor(
+            $_POST["cedula"],
+            $_POST["nombre"],
+            $_POST["apellido"],
+            $_POST["direccion"],
+            $_POST["celular"],
+            $_POST["num_licencia"],
+            $_POST["vencimiento_licencia"],
+            $_POST["grado_licencia"]
+        );
+        include "../controlador/adminController.php";
 
-session_start();
-$cedula_usuario = isset($_SESSION['cedula_usuario']) ? $_SESSION['cedula_usuario'] : null;
+    } elseif ($_GET["action"] == "delete") {
+        $conductor->eliminarConductor($_GET["cedula"]);
+        header("Location: ../controlador/adminController.php");
 
-$result = $conductor->insertarConductor(
-    $cedula,
-    $nombre,
-    $apellido,
-    $direccion,
-    $celular,
-    $num_licencia,
-    $vencimiento_licencia,
-    intval($grado_licencia),
-    $cedula_usuario
-);
+    } else {
+        session_start();
+        $cedula_usuario = isset($_SESSION['cedula_usuario']) ? $_SESSION['cedula_usuario'] : null;
 
-if ($result) {
-    header("Location: ../vista/admin.php");
+        $result = $conductor->insertarConductor(
+            $_POST['cedula'],
+            $_POST['nombre'],
+            $_POST['apellido'],
+            $_POST['direccion'],
+            $_POST['celular'],
+            $_POST['num_licencia'],
+            $_POST['vencimiento_licencia'],
+            intval($_POST['grado_licencia']),
+            $cedula_usuario
+        );
+
+        if ($result) {
+            header("Location: ../controlador/adminController.php");
+        } else {
+            echo "Error al guardar el conductor.";
+            exit;
+        }
+    }
+
 } else {
-    echo "Error al guardar el conductor.";
-    exit;
+    include "../vista/conductores.php";
 }
 
 ?>

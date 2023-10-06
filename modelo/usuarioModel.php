@@ -47,7 +47,7 @@ class Usuario
      * Devolvera un `array` del usuario si existe y la contraseña coincide con el hash.
      * @param string $cedula_usuario
      * @param string $contraseña_usuario
-     * @return array
+     * @return array | bool
      */
     public function login($cedula_usuario, $contraseña_usuario)
     {
@@ -63,6 +63,12 @@ class Usuario
         } else {
             return false;
         }
+    }
+
+    public function listarRoles()
+    {
+        $result = $this->conn->query("SELECT * FROM `roles`");
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**

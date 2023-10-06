@@ -24,8 +24,9 @@ class Vehiculo
                 `numero_vehiculo`,
                 `color`,
                 `ID_tipo`,
-                `ID_fabricante`,
-            ) VALUES (?, ?, ?, ?, ?)");
+                `ID_fabricante`
+                ) VALUES (?, ?, ?, ?, ?)"
+            );
 
             $stmt->execute([
                 $serial,
@@ -49,7 +50,7 @@ class Vehiculo
     public function listarVehiculos(): array
     {
         $result = $this->conn->query("SELECT * FROM `vehiculo`");
-        return $result->fetchAll(PDO::FETCH_COLUMN);
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -58,8 +59,8 @@ class Vehiculo
      */
     public function listarFabricantes(): array
     {
-        $result = $this->conn->query("SELECT `nombre_fabricante` FROM `fabricante`");
-        return $result->fetchAll(PDO::FETCH_COLUMN);
+        $result = $this->conn->query("SELECT * FROM `fabricante`");
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -68,8 +69,8 @@ class Vehiculo
      */
     public function listarTiposVehiculos()
     {
-        $result = $this->conn->query("SELECT `nombre_tipo` FROM `tipovehiculo`");
-        return $result->fetchAll(PDO::FETCH_COLUMN);
+        $result = $this->conn->query("SELECT * FROM `tipovehiculo`");
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 

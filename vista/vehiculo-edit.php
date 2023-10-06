@@ -8,12 +8,12 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../vista/css/index.css">
     <title>Vehiculo</title>
 </head>
 
 <body>
-    <?php include_once "./componentes/navbar-edit.php"; ?>
+    <?php include_once "../vista/componentes/navbar-admin-edit.php"; ?>
 
     <main class="layout">
         <section class="card card--short">
@@ -22,34 +22,34 @@ session_start();
 
                 <div>
                     <label for="serial">Serial</label>
-                    <input type="text" name="serial" id="serial">
+                    <input type="text" name="serial" id="serial" maxlength="11" required>
                 </div>
 
                 <div>
                     <label for="numero_vehiculo">Numero de vehiculo</label>
-                    <input type="text" name="numero_vehiculo" id="numero_vehiculo">
+                    <input type="text" name="numero_vehiculo" id="numero_vehiculo" maxlength="11" required>
                 </div>
 
                 <div>
                     <label for="color">Color</label>
-                    <input type="text" name="color" id="color">
+                    <input type="text" name="color" id="color" maxlength="30" required>
                 </div>
 
                 <div>
-                    <select>
+                    <select name="ID_fabricante" required>
                         <?php
-                        foreach ($_SESSION["fabricantes"] as $fab) {
-                            echo "<option>$fab</option>";
+                        foreach ($fabricantes as $fab) {
+                            echo "<option value={$fab['ID_fabricante']}>{$fab['nombre_fabricante']}</option>";
                         }
                         ?>
                     </select>
                 </div>
 
                 <div>
-                    <select>
+                    <select name="ID_tipo" required>
                         <?php
-                        foreach ($_SESSION["tipovehiculo"] as $tipo) {
-                            echo "<option>$tipo</option>";
+                        foreach ($tipos_vehiculo as $tipo) {
+                            echo "<option value={$tipo['ID_tipo']}>{$tipo['nombre_tipo']}</option>";
                         }
                         ?>
                     </select>

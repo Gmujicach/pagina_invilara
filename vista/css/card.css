@@ -18,6 +18,10 @@
     max-width: 25%;
 }
 
+.card--large {
+    max-width: 90%;
+}
+
 .card__desc {
     margin: 0;
     flex: 80%;

@@ -5,8 +5,8 @@
         <a href="#">Ayuda</a>
     </div>
     <div class="navbar__item">
-        <a href="login.php">Iniciar Sesión</a>
-        <a href="register.php">Registrarse</a>
-        <img src="assets/logo.png" class="navbar__logo">
+        <a href="../controlador/loginController.php">Iniciar Sesión</a>
+        <a href="../controlador/registerController.php">Registrarse</a>
+        <img src="../vista/assets/logo.png" class="navbar__logo"></img>
     </div>
 </nav>

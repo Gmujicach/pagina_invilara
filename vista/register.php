@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../vista/css/index.css">
     <title>Registrarse</title>
 </head>
 
 <body>
 
-    <?php include_once "./componentes/navbar-main.php"; ?>
+    <?php include_once "../vista/componentes/navbar-main.php"; ?>
 
     <main class="layout">
         <section class="card card--short">
@@ -38,8 +38,11 @@
                     <input type="password" name="contraseña_verificar" placeholder="Repite la contraseña" required>
 
                     <select name="rol">
-                        <option value="2">Usuario
-                        <option value="1">Administrador
+                        <?php
+                        foreach ($roles as $rol) {
+                            echo "<option value={$rol['ID_rol']}>{$rol['Nombre']}";
+                        }
+                        ?>
                     </select>
 
                     <button type="submit" value="registrar">Crear cuenta</button>

@@ -10,7 +10,8 @@ $conductor = new Conductor($bd->crear_conexion());
 $vehiculo = new Vehiculo($bd->crear_conexion());
 
 // Logica
-$fabricantes = $vehiculo->listarVehiculos();
-require "../vista/admin.php";
+$conductores = $conductor->listarConductores();
+
+include "../vista/admin.php";
 
 ?>
