@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cedula_usuario
     );
 
+    // Si el insertar falla, mostrar error.
     if (!$result) {
         echo "Error al guardar el conductor.";
         exit;

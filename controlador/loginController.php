@@ -30,9 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         header('Location: ../vista/login.php?error=1');
     }
-
-} else {
-    include "../vista/login.php";
 }
+
+include "../vista/login.php";
 
 ?>
