@@ -39,5 +39,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $vehiculos = $vehiculo->listarVehiculos();
 include "../vista/vehiculos.php";
 exit;
-
-?>

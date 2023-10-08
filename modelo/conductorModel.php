@@ -45,7 +45,6 @@ class Conductor
                 $cedula_usuario
             ]);
             return true;
-
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
             exit;
@@ -103,5 +102,3 @@ class Conductor
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-
-?>

@@ -19,7 +19,8 @@ class Vehiculo
         string $ID_fabricante,
     ): bool {
         try {
-            $stmt = $this->conn->prepare("INSERT INTO `vehiculo` (
+            $stmt = $this->conn->prepare(
+                "INSERT INTO `vehiculo` (
                 `serial`,
                 `numero_vehiculo`,
                 `color`,
@@ -36,7 +37,6 @@ class Vehiculo
                 $ID_fabricante,
             ]);
             return true;
-
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
             exit;
@@ -106,6 +106,3 @@ class Vehiculo
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-
-
-?>

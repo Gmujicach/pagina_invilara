@@ -26,7 +26,7 @@ if ($_GET["action"] == "put") {
             $_POST["grado_licencia"]
         );
     } else {
-        // De lo contrario, cargara la vista. La vista deberia retornar un POST devuelta.
+        // De lo contrario, cargara la vista de ediciòn. La vista deberia retornar un POST devuelta.
         include "../vista/conductor-update.php";
         exit;
     }
@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();
     $cedula_usuario = isset($_SESSION['cedula_usuario']) ? $_SESSION['cedula_usuario'] : null;
 
+    // Ingresra 
     $result = $conductor->insertarConductor(
         $_POST['cedula'],
         $_POST['nombre'],
@@ -62,5 +63,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Actualizar pagina
 $conductores = $conductor->listarConductores();
 include "../vista/conductores.php";
-
-?>

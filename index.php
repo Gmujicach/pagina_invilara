@@ -1,5 +1,3 @@
 <?php
 
-header("Location: vista/login.php");
-
-?>
+header("Location: controlador/loginController.php");

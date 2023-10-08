@@ -29,6 +29,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $roles = $user->listarRoles();
 include "../vista/register.php";
-
-
-?>
