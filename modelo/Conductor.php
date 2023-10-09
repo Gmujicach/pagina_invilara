@@ -9,7 +9,7 @@ class Conductor
         $this->conn = $pdo;
     }
 
-    public function insertarConductor(
+    public function crearConductor(
         $cedula,
         $nombre,
         $apellido,
@@ -21,6 +21,11 @@ class Conductor
         $cedula_usuario
     ): bool {
         try {
+            if ($this->obtenerConductor($cedula)) {
+                echo "ERROR: El conductor ya existe";
+                exit;
+            }
+
             $stmt = $this->conn->prepare("INSERT INTO `conductores` (
                 `cedula_conductor`,
                 `nombre_conductor`,
@@ -51,6 +56,9 @@ class Conductor
         }
     }
 
+    /**
+     * La cedula es el identificador.
+     */
     public function actualizarConductor(
         $cedula,
         $nuevoNombre,
@@ -87,18 +95,24 @@ class Conductor
 
     public function eliminarConductor($cedula_conductor): string|int
     {
-        $stmt = $this->conn->prepare("DELETE FROM `conductores` WHERE cedula_conductor=?");
+        $stmt = $this->conn->prepare("DELETE FROM `conductores` WHERE `cedula_conductor` = ?");
         $stmt->execute([$cedula_conductor]);
         return $stmt->rowCount();
     }
 
     /**
      * Listara todos los vehiculos
-     * @return array
      */
-    public function listarConductores()
+    public function listarConductores(): array
     {
         $result = $this->conn->query("SELECT * FROM `conductores`");
         return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function obtenerConductor($identificador): array | bool
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM `conductores` WHERE `cedula_conductor` = ?");
+        $stmt->execute([$identificador]);
+        return $stmt->fetch();
     }
 }

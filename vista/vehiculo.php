@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <?php include_once "../vista/componentes/navbar-admin.php"; ?>
+    <?php require_once "../vista/componentes/navbar-admin.php"; ?>
 
     <section class="card">
         <h2>Vehiculos</h2>
-        <a href="../controlador/vehiculoController.php?action=put">Añadir</a>
+        <a href="../controlador/VehiculoCreate.php">Añadir</a>
         <table>
             <tr>
                 <th>Serial</th>
@@ -31,9 +31,9 @@
                 echo "<td>{$vehiculo['ID_tipo']}</td>";
                 echo "<td>{$vehiculo['ID_fabricante']}</td>";
                 echo "<td>
-                    <a href='../controlador/vehiculoController.php?action=update&id={$vehiculo['serial']}'>Actualizar</a>
+                    <a href='../controlador/VehiculoUpdate.php?id={$vehiculo['serial']}'>Actualizar</a>
                     |
-                    <a href='../controlador/vehiculoController.php?action=delete&id={$vehiculo['serial']}'>Eliminar</a></td>";
+                    <a href='../controlador/VehiculoDelete.php?id={$vehiculo['serial']}'>Eliminar</a></td>";
                 echo "</tr>";
             }
             ?>

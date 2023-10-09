@@ -13,12 +13,12 @@
 
     <main class="layout">
         <section class="card card--short">
-            <form class="form-label" action="../controlador/ConductorUpdate.php" method="POST">
+            <form class="form-label" action="../controlador/ConductorCreate.php" method="POST">
                 <h1>CONDUCTOR</h1>
 
                 <div>
                     <label for="cedula">Cédula:</label>
-                    <input type="text" name="cedula" id="cedula" value="<?php echo $_GET["id"] ?>" required disabled>
+                    <input type="text" name="cedula" id="cedula" required>
                 </div>
 
                 <div>
@@ -56,7 +56,7 @@
                     <input type="text" name="grado_licencia" id="grado_licencia" required>
                 </div>
 
-                <button type="submit" type="text" name="grado_licencia" required>Confirmar
+                <button type="submit" type="text" required>Confirmar
             </form>
         </section>
     </main>

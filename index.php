@@ -1,3 +1,4 @@
 <?php
 
-header("Location: controlador/loginController.php");
+// Init
+header("Location: controlador/Login.php");

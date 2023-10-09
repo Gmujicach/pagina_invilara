@@ -1,8 +1,8 @@
 <?php
 
 // Instancias
-require_once "../modelo/baseDatosModel.php";
-require_once "../modelo/usuarioModel.php";
+require_once "../modelo/BaseDatos.php";
+require_once "../modelo/Usuario.php";
 
 $bd = new BaseDatos();
 $user = new Usuario($bd->crear_conexion());
@@ -21,11 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     if ($result == true) {
-        header("Location: ../controlador/conductorController.php");
+        header("Location: ../controlador/Conductor.php");
     } else {
         header('Location: ../vista/register.php?error=cedula_repetida');
     }
 }
 
 $roles = $user->listarRoles();
-include "../vista/register.php";
+require_once "../vista/register.php";

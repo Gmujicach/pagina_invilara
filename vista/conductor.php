@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <?php include_once "../vista/componentes/navbar-admin.php"; ?>
+    <?php require_once "../vista/componentes/navbar-admin.php"; ?>
 
     <section class="card card--large">
         <h2>Conductores</h2>
-        <a href="../controlador/conductorController.php?action=put">Añadir</a>
+        <a href="../controlador/ConductorCreate.php">Añadir</a>
         <table>
             <tr>
                 <th>Cédula</th>
@@ -38,9 +38,9 @@
                 echo "<td>{$conductor['vencimiento_licencia']}</td>";
                 echo "<td>{$conductor['grado_licencia']}</td>";
                 echo "<td>
-                    <a href='../controlador/conductorController.php?action=update&id={$conductor['cedula_conductor']}'>Actualizar</a>
+                    <a href='../controlador/ConductorUpdate.php?id={$conductor['cedula_conductor']}'>Actualizar</a>
                     |
-                    <a href='../controlador/conductorController.php?action=delete&id={$conductor['cedula_conductor']}'>Eliminar</a></td>";
+                    <a href='../controlador/ConductorDelete.php?id={$conductor['cedula_conductor']}'>Eliminar</a></td>";
                 echo "</tr>";
             }
             ?>

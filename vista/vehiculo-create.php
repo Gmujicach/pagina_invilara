@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <?php include_once "../vista/componentes/navbar-admin-edit.php"; ?>
+    <?php require_once "../vista/componentes/navbar-admin-edit.php"; ?>
 
     <main class="layout">
         <section class="card card--short">
-            <form class="form-label" action="../controlador/vehiculoController.php" method="POST">
+            <form class="form-label" action="../controlador/VehiculoCreate.php" method="POST">
                 <h1>VEHICULO</h1>
 
                 <div>

@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="navbar__item">
-        <a href="../controlador/conductorController.php">Cancelar</a>
+        <a href="../controlador/Vehiculo.php">Cancelar</a>
     </div>
 
     <div class="navbar__item">

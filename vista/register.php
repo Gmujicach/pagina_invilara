@@ -10,7 +10,7 @@
 
 <body>
 
-    <?php include_once "../vista/componentes/navbar-main.php"; ?>
+    <?php require_once "../vista/componentes/navbar-main.php"; ?>
 
     <main class="layout">
         <section class="card card--short">
@@ -31,7 +31,7 @@
                 }
                 ?>
 
-                <form action="../controlador/registerController.php" method="POST">
+                <form action="../controlador/Register.php" method="POST">
                     <input type="text" name="cedula_usuario" placeholder="Cedula" required>
                     <input type="text" name="nombre_usuario" placeholder="Nombre de Usuario" required>
                     <input type="password" name="contraseña_usuario" placeholder="Contraseña" required>

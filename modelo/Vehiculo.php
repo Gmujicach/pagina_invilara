@@ -1,7 +1,5 @@
 <?php
 
-require_once "../modelo/baseDatosModel.php";
-
 class Vehiculo
 {
     private $conn;
@@ -11,12 +9,12 @@ class Vehiculo
         $this->conn = $pdo;
     }
 
-    public function insertarVechiculo(
-        string $serial,
-        string $numero_vehiculo,
-        string $color,
-        string $ID_tipo,
-        string $ID_fabricante,
+    public function crearVechiculo(
+        $serial,
+        $numero_vehiculo,
+        $color,
+        $ID_tipo,
+        $ID_fabricante,
     ): bool {
         try {
             $stmt = $this->conn->prepare(
@@ -50,23 +48,28 @@ class Vehiculo
         $ID_tipo,
         $ID_fabricante,
     ) {
-        $stmt = $this->conn->prepare(
-            "UPDATE `vehiculo` SET 
-                serial=?, 
-                numero_vehiculo=?, 
-                color=?, 
-                ID_tipo=?, 
-                ID_fabricante=?, 
-            WHERE serial=?"
-        );
-        $stmt->execute([
-            $serial,
-            $numero_vehiculo,
-            $color,
-            $ID_tipo,
-            $ID_fabricante,
-        ]);
-        return $stmt->rowCount();
+        try {
+            $stmt = $this->conn->prepare(
+                "UPDATE `vehiculo` SET 
+                    serial=?, 
+                    numero_vehiculo=?, 
+                    color=?, 
+                    ID_tipo=?, 
+                    ID_fabricante=? 
+                WHERE serial=?"
+            );
+            $stmt->execute([
+                $serial,
+                $numero_vehiculo,
+                $color,
+                $ID_tipo,
+                $ID_fabricante
+            ]);
+            return $stmt->rowCount();
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+            exit;
+        }
     }
 
     public function eliminarConductor($serial)
