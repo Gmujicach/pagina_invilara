@@ -14,7 +14,7 @@ $tipos_vehiculo = $vehiculo->listarTiposVehiculos();
 $id = $_GET["id"];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $vehiculo->actualizarConductor(
+    $vehiculo->actualizarVehiculo(
         $_POST['serial'],
         $_POST['numero_vehiculo'],
         $_POST['color'],

@@ -11,7 +11,7 @@ $vehiculo = new Vehiculo($bd->crear_conexion());
 $id = $_GET["id"];
 
 if ($id) {
-    $vehiculo->eliminarConductor($_GET["id"]);
+    $vehiculo->eliminarVehiculo($_GET["id"]);
     require_once "../controlador/Vehiculo.php";
     exit;
 } else {
