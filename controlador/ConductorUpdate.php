@@ -11,7 +11,9 @@ $conductor = new Conductor($bd->crear_conexion());
 $id = $_GET["id"];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $conductor->actualizarConductor(
+    // Si es un POST, extraera el 'id' proporcionado y actualizara el conductor correspondiente.
+    $result = $conductor->actualizarConductor(
+        $id,
         $_POST["cedula"],
         $_POST["nombre"],
         $_POST["apellido"],
@@ -21,8 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST["vencimiento_licencia"],
         $_POST["grado_licencia"]
     );
-    require_once "../controlador/Conductor.php";
-    exit;
+
+    if (!$result) {
+        exit;
+    } else {
+        header("Location: ../controlador/Conductor.php");
+        exit;
+    }
 } elseif ($id) {
     // De lo contrario, cargara la vista de ediciòn si 'id' existe. La vista deberia retornar un POST devuelta.
     require_once "../vista/conductor-update.php";

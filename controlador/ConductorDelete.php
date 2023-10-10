@@ -11,7 +11,7 @@ $conductor = new Conductor($bd->crear_conexion());
 if ($_GET["id"]) {
     // Eliminara el conductor por su ID (Ejemplo: cedula_conductor)
     $conductor->eliminarConductor($_GET["id"]);
-    require_once "../controlador/Conductor.php";
+    header("Location: ../controlador/Conductor.php");
     exit;
 } else {
     echo "ERROR: No se especifico el conductor a eliminar (id).";

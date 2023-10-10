@@ -41,38 +41,42 @@ class Vehiculo
         }
     }
 
-    public function actualizarConductor(
+    public function actualizarVehiculo(
+        $id_serial,
         $serial,
         $numero_vehiculo,
         $color,
         $ID_tipo,
         $ID_fabricante,
-    ) {
-        try {
-            $stmt = $this->conn->prepare(
-                "UPDATE `vehiculo` SET 
-                    serial=?, 
-                    numero_vehiculo=?, 
-                    color=?, 
-                    ID_tipo=?, 
-                    ID_fabricante=? 
-                WHERE serial=?"
-            );
-            $stmt->execute([
-                $serial,
-                $numero_vehiculo,
-                $color,
-                $ID_tipo,
-                $ID_fabricante
-            ]);
-            return $stmt->rowCount();
-        } catch (PDOException $e) {
-            echo "ERROR: " . $e->getMessage();
+    ): bool {
+        if (!$this->obtenerVehiculo($id_serial)) {
+            echo "ERROR: El conductor con la cedula . $id_serial . no existe";
             exit;
         }
+
+        $stmt = $this->conn->prepare(
+            "UPDATE 
+                `vehiculo` 
+            SET 
+                `serial` = ?, 
+                `numero_vehiculo` = ?, 
+                `color` = ?, 
+                `ID_tipo` = ?, 
+                `ID_fabricante` = ? 
+            WHERE 
+                `serial` = ?"
+        );
+        return $stmt->execute([
+            $serial,
+            $numero_vehiculo,
+            $color,
+            $ID_tipo,
+            $ID_fabricante,
+            $id_serial,
+        ]);
     }
 
-    public function eliminarConductor($serial)
+    public function eliminarVehiculo($serial)
     {
         $stmt = $this->conn->prepare("DELETE FROM `vehiculo` WHERE serial=?");
         $stmt->execute([$serial]);
@@ -107,5 +111,12 @@ class Vehiculo
     {
         $result = $this->conn->query("SELECT * FROM `tipovehiculo`");
         return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function obtenerVehiculo($id): array | bool
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM `vehiculo` WHERE `serial` = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch();
     }
 }

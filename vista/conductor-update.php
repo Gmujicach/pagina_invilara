@@ -13,12 +13,16 @@
 
     <main class="layout">
         <section class="card card--short">
-            <form class="form-label" action="../controlador/ConductorUpdate.php" method="POST">
+            <form class="form-label" action="../controlador/ConductorUpdate.php?id=<?php echo $_GET["id"] ?>" method="POST">
                 <h1>CONDUCTOR</h1>
 
                 <div>
-                    <label for="cedula">Cédula:</label>
-                    <input type="text" name="cedula" id="cedula" value="<?php echo $_GET["id"] ?>" required disabled>
+                    <p><strong>Editando conductor con la cédula:</strong> <?php echo $_GET["id"] ?> </p>
+                </div>
+
+                <div>
+                    <label for="cedula">Nueva cédula:</label>
+                    <input type="text" name="cedula" id="cedula" required>
                 </div>
 
                 <div>

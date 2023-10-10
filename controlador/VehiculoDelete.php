@@ -12,7 +12,7 @@ $id = $_GET["id"];
 
 if ($id) {
     $vehiculo->eliminarVehiculo($_GET["id"]);
-    require_once "../controlador/Vehiculo.php";
+    header("Location: ../controlador/Vehiculo.php");
     exit;
 } else {
     echo "No se ha proporcionado ningun 'id'";

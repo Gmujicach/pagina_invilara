@@ -13,12 +13,16 @@
 
     <main class="layout">
         <section class="card card--short">
-            <form class="form-label" action="../controlador/VehiculoUpdate.php" method="POST">
+            <form class="form-label" action="../controlador/VehiculoUpdate.php?id=<?php echo $_GET["id"] ?>" method="POST">
                 <h1>VEHICULO</h1>
 
                 <div>
+                    <p><strong>Editando vehiculo con el serial:</strong> <?php echo $_GET["id"] ?> </p>
+                </div>
+
+                <div>
                     <label for="serial">Serial</label>
-                    <input type="text" name="serial" id="serial" value="<?php echo $_GET["id"] ?>" maxlength="11" required disabled>
+                    <input type="text" name="serial" id="serial" maxlength="11" required>
                 </div>
 
                 <div>

@@ -15,13 +15,14 @@ $id = $_GET["id"];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vehiculo->actualizarVehiculo(
+        $id,
         $_POST['serial'],
         $_POST['numero_vehiculo'],
         $_POST['color'],
         $_POST['ID_tipo'],
         $_POST['ID_fabricante']
     );
-    require_once "../controlador/Vehiculo.php";
+    header("Location: ../controlador/Vehiculo.php");
     exit;
 } elseif ($id) {
     // De lo contrario, cargara la vista de ediciòn si 'id' existe. La vista deberia retornar un POST devuelta.
